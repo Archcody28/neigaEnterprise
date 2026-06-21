@@ -1,0 +1,152 @@
+@use '../abstracts/variables' as *;
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width:
+    min(
+      1120px,
+      calc(100% - $space-lg)
+    );
+
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .container {
+    width:
+      min(
+        1120px,
+        calc(100% - 1rem)
+      );
+  }
+}
+
+/* =========================
+   GENERIC GRID UTILITIES
+========================= */
+
+.grid-2,
+.grid-3,
+.grid-4,
+.products-grid,
+.product-grid {
+  display: grid;
+
+  gap: $space-lg;
+
+  min-width: 0;
+}
+
+/* =========================
+   GRID COLUMNS
+========================= */
+
+.grid-2 {
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+}
+
+/* =========================
+   PRODUCTS GRID
+========================= */
+
+.products-grid,
+.product-grid,
+#products-container {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: $space-lg;
+
+  align-items: start;
+
+  min-width: 0;
+}
+
+/* =========================
+   SPLIT LAYOUT
+========================= */
+
+.split {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: $space-xl;
+
+  min-width: 0;
+}
+
+/* =========================
+   MEDIUM
+   3 COLUMNS
+========================= */
+
+@media (max-width: 1100px) {
+  .products-grid,
+  .product-grid,
+  #products-container {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* =========================
+   TABLET
+   2 COLUMNS
+========================= */
+
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .products-grid,
+  .product-grid,
+  #products-container {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: $space-md;
+  }
+}
+
+/* =========================
+   MOBILE
+   2 COLUMNS
+========================= */
+
+@media (max-width: 480px) {
+  .products-grid,
+  .product-grid,
+  #products-container {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: $space-sm;
+  }
+
+  #recent-container {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}

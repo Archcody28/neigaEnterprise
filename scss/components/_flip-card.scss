@@ -1,0 +1,61 @@
+@use '../abstracts/variables' as *;
+
+/* =========================
+   FLIP CARD
+========================= */
+
+.flip-card {
+  perspective: 1200px;
+}
+
+.flip-card-inner {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  transform-style: preserve-3d;
+
+  transition: transform 0.7s ease;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  border-radius: $radius;
+
+  backface-visibility: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.testimonial-column {
+  position: relative;
+  min-height: 520px;
+}
+
+.t-card {
+  position: absolute;
+  inset: 0;
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}

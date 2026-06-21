@@ -1,0 +1,154 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholders' as *;
+
+/* =========================
+   BUTTON BASE
+========================= */
+
+.button {
+  @extend %flex-center;
+  @extend %transition-base;
+  @extend %interactive;
+
+  gap: $space-xs;
+
+  min-height: 44px;
+  min-width: 44px;
+
+  padding:
+    $space-sm
+    $space-lg;
+
+  border: 1px solid transparent;
+  border-radius: $radius-pill;
+
+  font-weight: 600;
+
+  user-select: none;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &:focus-visible {
+    outline: 2px solid
+      rgba(
+        $color-primary,
+        0.4
+      );
+
+    outline-offset: 3px;
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    pointer-events: none;
+  }
+}
+
+/* =========================
+   PRIMARY
+========================= */
+
+.button-primary {
+  background: $color-primary;
+  color: $color-white;
+
+  box-shadow:
+    0 18px 40px rgba(
+      $color-primary-dark,
+      0.24
+    );
+
+  &:hover {
+    background:
+      $color-primary-dark;
+  }
+}
+
+/* =========================
+   SECONDARY
+========================= */
+
+.button-secondary,
+.button-ghost {
+  background: $surface;
+
+  color: $text;
+
+  border-color: $border;
+}
+
+/* =========================
+   GHOST
+========================= */
+
+.button-ghost {
+  padding:
+    $space-xs
+    $space-md;
+
+  &:hover {
+    background:
+      rgba(
+        $color-primary,
+        0.06
+      );
+
+    border-color:
+      $color-primary-light;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .button.button-block {
+    width: 100%;
+
+    text-align: center;
+  }
+}
+/* =========================
+   BUTTONS
+========================= */
+
+.button,
+.delete-product,
+.delete-home-product,
+.delete-testimonial,
+.delete-order {
+  border: none;
+
+  border-radius: 16px;
+
+  padding:
+    12px 18px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.button:hover,
+.delete-product:hover,
+.delete-home-product:hover,
+.delete-testimonial:hover,
+.delete-order:hover {
+  transform: translateY(-2px);
+}

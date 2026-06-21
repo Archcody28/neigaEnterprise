@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse Neiga Enterprise product collections including duvets, curtains, blankets and décor with WhatsApp ordering links.">
+  <title>Products-detail</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- CART MODAL -->
+<div id="cart-modal">
+  <div class="cart-drawer">
+
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button id="close-cart">✕</button>
+    </div>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong>₦<span id="cart-total">0</span></strong>
+      </div>
+      <button id="checkout" class="button button-primary">
+        Checkout on WhatsApp
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast" class="toast">Added to cart</div>
+  <a class="whatsapp-float" href="https://wa.me/1234567890?text=Hello%20Neiga%20Enterprise%2C%20I%20would%20like%20to%20order%20from%20the%20catalog." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <span>WhatsApp</span>
+  </a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Neiga <span class="eyebrow">Enterprise</span></a>
+      <div class="cart-icon" id="cart-icon">
+  🛒 <span id="cart-count">0</span>
+</div>
+<button class="back-button" onclick="history.back()">
+  ← Back
+</button>
+      <div class="nav-toggle" aria-label="Open menu" role="button" tabindex="0" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-overlay"></div>
+    </div>
+  </header>
+<section>
+   <main class="product-detail  container">
+    <div id="product-detail"></div>
+   </main></section>
+   <script type="module" src="js/main.js"></script>
+   <script type="module" src="js/product-detail.js"></script>
+   <div id="mini-cart" class="mini-cart"></div>
+</body>
+</html>

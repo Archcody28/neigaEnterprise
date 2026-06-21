@@ -1,0 +1,9 @@
+{
+  "name": "Silken Dream Duvet",
+  "price": 120,
+  "image": "assets/images/silken dream duvet.jpeg",
+  "description": "Luxury duvet for premium comfort.",
+  "category": "duvet",
+  "stock": 20,
+  "featured": true
+}

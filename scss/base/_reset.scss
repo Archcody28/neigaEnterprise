@@ -1,0 +1,187 @@
+@use '../abstracts/variables' as *;
+
+/* =========================
+   GLOBAL RESET
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* =========================
+   ROOT
+========================= */
+
+html {
+  scroll-behavior: smooth;
+
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  max-width: 100%;
+
+  overflow-x: hidden;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+  margin: 0;
+
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      to bottom,
+      $color-cream,
+      $color-light
+    );
+
+  color: $text;
+
+  font-family: $font-family;
+  font-size: 16px;
+  line-height: 1.65;
+
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   MEDIA ELEMENTS
+========================= */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+/* =========================
+   FORM ELEMENTS
+========================= */
+
+button,
+input,
+textarea,
+select {
+  min-width: 0;
+
+  font: inherit;
+}
+
+/* =========================
+   BUTTON RESET
+========================= */
+
+button {
+  border: none;
+
+  background: none;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+/* =========================
+   LISTS
+========================= */
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+
+  overflow-wrap: break-word;
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
+input,
+textarea,
+button,
+select,
+img,
+video {
+  max-width: 100%;
+}
+
+.t-card.active .card-inner {
+  transform: rotateY(180deg);
+}
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.card-back {
+  transform: rotateY(180deg);
+}

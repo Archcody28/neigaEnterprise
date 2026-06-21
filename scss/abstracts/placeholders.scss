@@ -1,0 +1,61 @@
+@use 'variables' as *;
+
+/* =========================
+   CARD BASE
+========================= */
+
+%card-base {
+  overflow: hidden;
+
+  background: $surface;
+
+  border: 1px solid $border;
+  border-radius: $radius;
+
+  box-shadow: $shadow;
+
+  background-clip: padding-box;
+}
+
+/* =========================
+   TRANSITIONS
+========================= */
+
+%transition-base {
+  transition:
+    transform $transition-base,
+    box-shadow $transition-base,
+    border-color $transition-base;
+}
+
+/* =========================
+   FLEX CENTER
+========================= */
+
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   INTERACTIVE
+========================= */
+
+%interactive {
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+
+  touch-action: manipulation;
+}
+
+/* =========================
+   HOVER LIFT
+========================= */
+
+%hover-lift {
+  &:hover {
+    transform: translateY(-6px);
+  }
+}

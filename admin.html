@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controll Pannel</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+  #admin-dashboard {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<main class="section admin-page">
+  <div class="container">
+<section id="admin-login" class="admin-login">
+  <h2>Admin Login</h2>
+
+  <form id="admin-login-form">
+    <input type="email" id="admin-email" placeholder="Email" required>
+    <input type="password" id="admin-password" placeholder="Password" required>
+
+    <button type="submit" class="button button-primary">
+      Login
+    </button>
+  </form>
+</section>
+<div id="admin-dashboard" class="admin-dashboard">
+
+  <!-- =========================
+       SIDEBAR
+  ========================== -->
+
+  <aside class="admin-sidebar" id="admin-sidebar">
+
+    <div class="admin-sidebar-top">
+      <h2 class="admin-logo">Control Panel</h2>
+
+      <button
+        class="admin-sidebar-close"
+        id="sidebar-close"
+        aria-label="Close Menu"
+      >
+        ✕
+      </button>
+    </div>
+
+    <nav class="admin-nav">
+
+      <button
+        class="admin-nav-link active"
+        data-section="dashboard-section"
+      >
+        Dashboard
+      </button>
+
+      <button
+        class="admin-nav-link"
+        data-section="content-section"
+      >
+        Add Content
+      </button>
+
+      <button
+        class="admin-nav-link"
+        data-section="products-section"
+      >
+        Products
+      </button>
+
+      <button
+        class="admin-nav-link"
+        data-section="orders-section"
+      >
+        Orders
+      </button>
+<button
+  class="admin-nav-link"
+  data-section="subscribers-section"
+>
+  Subscribers
+</button>
+
+    </nav>
+
+    <div class="admin-sidebar-bottom">
+
+      <button
+        id="theme-toggle"
+        class="admin-sidebar-action"
+      >
+        🌙 Theme
+      </button>
+
+      <button
+        class="admin-sidebar-action"
+      >
+        🔔 Notifications
+      </button>
+
+      <button
+        id="admin-logout"
+        class="admin-sidebar-action logout"
+      >
+        Logout
+      </button>
+
+    </div>
+
+  </aside>
+
+  <!-- =========================
+       SIDEBAR OVERLAY
+  ========================== -->
+
+  <div class="admin-overlay" id="admin-overlay"></div>
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+
+  <div class="admin-main">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="admin-header">
+
+      <div class="admin-header-left">
+
+        <button
+          class="admin-menu-toggle"
+          id="menu-toggle" aria-label="Open Menu">☰</button>
+
+        <h1 class="admin-page-title">Admin</h1>
+
+      </div>
+
+      <div class="admin-header-right">
+<div class="admin-search">
+
+  <input type="text" id="admin-search"  placeholder="🔍products, ordee..">
+
+</div>
+        <button class="admin-icon-button">
+          🔔
+        </button>
+<div class="admin-profile">
+  <button
+    class="admin-icon-button"
+    id="profile-toggle" >👤</button>
+
+  <div class="admin-profile-menu" id="profile-menu" >
+    <button> Profile</button>
+    <button>Settings</button>
+    <button id="admin-logout">Logout</button>
+  </div>
+</div>
+
+      </div>
+
+    </header>
+
+    <!-- =========================CONTENT AREA========================== -->
+
+    <div class="admin-content">
+
+      <!-- =========================DASHBOARD ========================== -->
+
+      <section class="admin-section active" id="dashboard-section" >
+
+        <div class="admin-card stat-card">
+
+  <div class="stat-card-top">
+    <span class="stat-label">
+      Total Sales
+    </span>
+
+    <div class="stat-icon">
+      💰
+    </div>
+  </div>
+
+  <strong id="total-sales">
+    ₦0
+  </strong>
+
+  <p class="stat-meta">
+    Revenue performance
+  </p>
+  
+
+</div>
+<div class="admin-card stat-card">
+
+  <div class="stat-card-top">
+    <span class="stat-label">
+      Total Orders
+    </span>
+
+    <div class="stat-icon">
+      📦
+    </div>
+  </div>
+
+  <strong id="total-orders">
+    0
+  </strong>
+
+  <p class="stat-meta">
+    Customer purchases
+  </p>
+
+</div>
+
+<section class="admin-panel">
+
+  <div class="admin-panel-header">
+    <h2>Recent Activity</h2>
+  </div>
+
+  <div class="activity-feed">
+
+    <div class="activity-item">
+      <div class="activity-dot"></div>
+
+      <div>
+        <strong>New order received</strong>
+        <p>Customer placed a new order.</p>
+      </div>
+    </div>
+
+    <div class="activity-item">
+      <div class="activity-dot"></div>
+
+      <div>
+        <strong>Product uploaded</strong>
+        <p>Inventory updated successfully.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<section
+  class="admin-section"
+  id="subscribers-section"
+>
+
+  <section class="admin-panel">
+
+    <h2>Email Subscribers</h2>
+
+    <div id="subscribers-list"></div>
+
+  </section>
+
+</section>
+        <section class="admin-chart-wrap">
+          <h2>Sales Overview</h2>
+
+          <canvas id="salesChart" height="120"></canvas>
+        </section>
+
+      </section>
+
+      <!-- =========================
+           ADD CONTENT
+      ========================== -->
+
+      <section
+        class="admin-section"
+        id="content-section"
+      >
+
+        <!-- ADD PRODUCT -->
+
+        <section class="admin-add-product admin-panel">
+
+          <h2>Add Product</h2>
+
+          <form id="product-form" class="product-form">
+  <input type="text"id="name" placeholder="Product name" required >
+
+ <input type="file" id="image" accept="image/*" required>
+
+
+            <img
+              id="image-preview"
+              class="admin-preview"
+              src=""
+              alt=""
+            >
+            <input
+              type="number"
+              id="price"
+              placeholder="Price"
+              required
+            >
+            <input
+              type="text"
+              id="description"
+              placeholder="Description"
+            >
+
+            <div class="admin-category-selector">
+
+  <label class="admin-field-label">Category</label>
+
+  <div class="admin-category-tabs">
+
+    <button
+      type="button"
+      class="category-tab active"
+      data-category="Home Essentials"
+    >
+      Home Essentials
+    </button>
+
+    <button
+      type="button"
+      class="category-tab"
+      data-category="Fashion"
+    >
+      Fashion
+    </button>
+
+    <button
+      type="button"
+      class="category-tab"
+      data-category="Accessories"
+    >
+      Accessories
+    </button>
+
+    <button
+      type="button"
+      class="category-tab"
+      data-category="Interior"
+    >
+      Interior
+    </button>
+
+    <button
+      type="button"
+      class="category-tab"
+      data-category="Beauty"
+    >
+      Beauty
+    </button>
+    <button
+      type="button"
+      class="category-tab"
+      data-category="Toys"
+    >
+      Toys
+    </button>
+    <button
+      type="button"
+      class="category-tab"
+      data-category="Books"
+    >
+      Books
+    </button>
+    <button
+      type="button"
+      class="category-tab"
+      data-category="Kitchen ware"  
+    >
+      Kitchenware</button>
+    <button
+      type="button"
+      class="category-tab"
+      data-category="Comfort and wellness"
+    >
+      Comfort and wellness
+    </button>
+
+  </div>
+
+  <input
+    type="hidden"
+    id="category"
+    value="Home Essentials"
+  >
+
+</div>
+
+            <input
+              type="number"
+              id="stock"
+              placeholder="Stock"
+            >
+
+            <button
+              type="submit"
+              class="button button-primary"
+            >
+              Add Product
+            </button>
+
+          </form>
+
+        </section>
+
+        <!-- HOMEPAGE PRODUCTS -->
+
+        <section class="admin-home-products admin-panel">
+
+          <h2>Homepage Featured Products</h2>
+
+          <form
+            id="home-product-form"
+            class="product-form"
+          >
+
+            <input
+              type="text"
+              id="home-name"
+              placeholder="Product name"
+              required
+            >
+
+            <input
+              type="number"
+              id="home-price"
+              placeholder="Price"
+              required
+            >
+
+            <input
+              type="file"
+              id="home-image"
+              accept="image/*"
+              required
+            >
+
+            <input
+              type="text"
+              id="home-description"
+              placeholder="Description"
+              required
+            >
+
+            <button
+              type="submit"
+              class="button button-primary"
+            >
+              Add Homepage Product
+            </button>
+
+          </form>
+
+          <div id="home-products-list"></div>
+
+        </section>
+
+        <!-- TESTIMONIALS -->
+
+        <section class="admin-home-testimonials admin-panel">
+
+          <h2>Homepage Testimonials</h2>
+
+          <form
+            id="testimonial-form"
+            class="product-form"
+          >
+
+            <input
+              type="file"
+              id="front-image"
+              accept="image/*"
+              required
+            >
+
+            <input
+              type="file"
+              id="back-image"
+              accept="image/*"
+              required
+            >
+
+            <input
+              type="text"
+              id="testimonial-quote"
+              placeholder="Quote"
+              required
+            >
+
+            <input
+              type="text"
+              id="testimonial-author"
+              placeholder="Author"
+              required
+            >
+
+            <button
+              type="submit"
+              class="button button-primary"
+            >
+              Add Testimonial
+            </button>
+
+          </form>
+
+          <div id="testimonials-list"></div>
+
+        </section>
+
+      </section>
+
+      <!-- =========================
+           PRODUCTS
+      ========================== -->
+
+      <section
+        class="admin-section"
+        id="products-section"
+      >
+
+        <section class="admin-products admin-panel">
+          <h2>Products</h2>
+
+          <div id="products-list"></div>
+        </section>
+
+      </section>
+
+      <!-- =========================
+           ORDERS
+      ========================== -->
+
+      <section
+        class="admin-section"
+        id="orders-section"
+      >
+
+        <section class="admin-orders admin-panel">
+          <h2>Orders</h2>
+
+          <div id="orders-list"></div>
+        </section>
+
+      </section>
+
+    </div>
+
+  </div>
+
+</div>
+  </div>
+</main>
+<div
+  class="admin-modal"
+  id="confirm-modal"
+>
+
+  <div class="admin-modal-card">
+
+    <h3 id="confirm-modal-text">
+      Confirm Action
+    </h3>
+
+    <div class="admin-modal-actions">
+
+      <button
+        class="button"
+        id="confirm-cancel"
+      >
+        Cancel
+      </button>
+
+      <button
+        class="button button-primary"
+        id="confirm-accept"
+      >
+        Confirm
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+<div
+  class="command-palette"
+  id="command-palette"
+>
+
+  <div class="command-palette-box">
+
+    <input
+      type="text"
+      placeholder="Search commands..."
+    >
+
+    <div class="command-results">
+
+      <button data-section="dashboard-section">
+        Dashboard
+      </button>
+
+      <button data-section="products-section">
+        Products
+      </button>
+
+      <button data-section="orders-section">
+        Orders
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="js/admin.js"></script>
+
+</body>
+</html>

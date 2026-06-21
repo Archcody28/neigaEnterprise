@@ -1,0 +1,176 @@
+@use '../abstracts/variables' as *;
+
+/* =========================
+   LIVE TOAST
+========================= */
+
+.live-toast {
+  position: fixed;
+
+  left: $space-lg;
+  bottom: $space-lg;
+
+  z-index: $z-toast;
+
+  max-width: min(320px, calc(100vw - 2rem));
+
+  padding: $space-sm $space-md;
+
+  color: $color-white;
+  background: $text;
+
+  border-radius: 18px;
+
+  box-shadow: $shadow;
+
+  opacity: 0;
+
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+
+  pointer-events: none;
+
+  will-change: opacity, transform;
+
+  &.show {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   DEFAULT TOAST
+========================= */
+
+.toast {
+  position: fixed;
+
+  right: 20px;
+  bottom: 20px;
+
+  z-index: $z-toast;
+
+  max-width: min(360px, calc(100vw - 2rem));
+
+  padding: 12px 16px;
+
+  color: $color-white;
+  background: $color-black;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 10px 30px rgba(
+      $color-black,
+      0.2
+    );
+
+  opacity: 0;
+
+  transform:
+    translateY(20px)
+    scale(0.95);
+
+  transition:
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  pointer-events: none;
+
+  will-change: opacity, transform;
+
+  &.show {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+/* =========================
+   TOAST INNER
+========================= */
+
+.toast-inner {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+/* =========================
+   TOAST IMAGE
+========================= */
+
+.toast-img {
+  width: 45px;
+  height: 45px;
+
+  flex-shrink: 0;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+}
+
+/* =========================
+   TOAST INFO
+========================= */
+
+.toast-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+  min-width: 0;
+
+  font-size: 0.875rem;
+}
+
+/* =========================
+   TOAST CHECK
+========================= */
+
+.toast-check {
+  margin-left: auto;
+
+  color: $color-success;
+
+  font-size: 18px;
+
+  flex-shrink: 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 640px) {
+  .toast,
+  .live-toast {
+    left: 50%;
+    right: auto;
+    bottom: $space-md;
+
+    width: calc(100% - 1.5rem);
+
+    transform:
+      translateX(-50%)
+      translateY(20px)
+      scale(0.96);
+  }
+
+  .toast.show,
+  .live-toast.show {
+    transform:
+      translateX(-50%)
+      translateY(0)
+      scale(1);
+  }
+}

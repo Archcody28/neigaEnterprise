@@ -1,0 +1,183 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholders' as *;
+
+/* =========================
+   HERO LAYOUT
+========================= */
+
+.hero {
+  min-height: calc(100vh - 5.5rem);
+
+  display: grid;
+  align-items: center;
+
+  gap: $space-xl;
+
+  overflow: hidden;
+}
+
+/* =========================
+   HERO COPY
+========================= */
+
+.hero-copy {
+  max-width: 34rem;
+
+  h1 {
+    background:
+      linear-gradient(
+        90deg,
+        $text,
+        $color-primary
+      );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color:
+      transparent;
+  }
+
+  p {
+    max-width: 38rem;
+  }
+}
+
+/* =========================
+   HERO ACTIONS
+========================= */
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: $space-sm;
+
+  margin-top: $space-lg;
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
+  @extend %card-base;
+
+  position: relative;
+
+  min-height: 28rem;
+
+  overflow: hidden;
+
+  animation:
+    float 6s ease-in-out infinite;
+
+  will-change: transform;
+
+  img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+      transform 0.5s ease;
+
+    will-change: transform;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* =========================
+   IMAGE OVERLAY PANEL
+========================= */
+
+.image-panel {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba($color-primary, 0.1) 0%,
+      rgba($bg, 0.2) 45%,
+      rgba($color-white, 0.08) 100%
+    );
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-image {
+    min-height: 24rem;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .hero {
+    gap: $space-lg;
+
+    text-align: center;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+
+    p {
+      max-width: 100%;
+    }
+  }
+
+  .hero-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .hero-image {
+    min-height: 20rem;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .hero-image {
+    min-height: 16rem;
+
+    border-radius: 20px;
+  }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image {
+    animation: none;
+  }
+
+  .hero-image img {
+    transition: none;
+  }
+}

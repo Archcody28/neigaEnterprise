@@ -1,0 +1,133 @@
+@use '../abstracts/variables' as *;
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin:
+    0
+    0
+    $space-sm;
+
+  color: $text;
+
+  line-height: 1.15;
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+}
+
+/* =========================
+   DISPLAY HEADINGS
+========================= */
+
+.hero h1,
+.page-hero h1,
+.section-head h2 {
+  font-size:
+    clamp(
+      2.2rem,
+      5vw,
+      4.25rem
+    );
+
+  line-height: 1.03;
+}
+
+/* =========================
+   PARAGRAPHS
+========================= */
+
+p {
+  margin:
+    0
+    0
+    $space-md;
+
+  color: $muted;
+
+  font-size: $text-base;
+}
+
+/* =========================
+   LEAD TEXT
+========================= */
+
+.hero p,
+.page-hero p,
+.section-head p {
+  max-width: 42rem;
+
+  font-size: $text-lg;
+}
+
+/* =========================
+   TEXT UTILITIES
+========================= */
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: $muted;
+}
+
+.text-accent {
+  color: $color-primary;
+}
+
+/* =========================
+   TEXT SELECTION
+========================= */
+
+::selection {
+  background:
+    rgba(
+      $color-primary,
+      0.22
+    );
+
+  color: $color-black;
+}
+
+/* =========================
+   MOBILE TYPOGRAPHY
+========================= */
+
+@media (max-width: 768px) {
+  .hero h1,
+  .page-hero h1,
+  .section-head h2 {
+    line-height: 1.08;
+  }
+
+  .hero p,
+  .page-hero p,
+  .section-head p {
+    font-size: $text-base;
+  }
+}
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    line-height: 1.08;
+  }
+
+  h2 {
+    line-height: 1.12;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+}

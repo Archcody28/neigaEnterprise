@@ -1,0 +1,89 @@
+@use '../abstracts/variables' as *;
+
+/* =========================
+   WHATSAPP FLOAT BUTTON
+========================= */
+
+.whatsapp-float {
+  position: fixed;
+
+  right: $space-lg;
+
+  bottom:
+    calc(
+      $space-lg +
+      env(safe-area-inset-bottom)
+    );
+
+  z-index: $z-header;
+
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #25d366;
+
+  color: $color-white;
+
+  font-size: 1.5rem;
+
+  box-shadow:
+    0 10px 25px rgba(
+      $color-black,
+      0.2
+    );
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  will-change: transform;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+  touch-action: manipulation;
+
+  &:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+      0 16px 35px rgba(
+        $color-black,
+        0.24
+      );
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(
+      $color-primary,
+      0.35
+    );
+
+    outline-offset: 4px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 640px) {
+  .whatsapp-float {
+    right: $space-md;
+
+    width: 50px;
+    height: 50px;
+
+    font-size: 1.35rem;
+  }
+}

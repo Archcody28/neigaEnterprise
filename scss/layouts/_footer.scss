@@ -1,0 +1,112 @@
+@use '../abstracts/variables' as *;
+
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+  margin-top: $space-xxl;
+
+  padding:
+    $space-xl 0;
+
+  background: $surface;
+
+  border-top:
+    1px solid $border;
+}
+
+/* =========================
+   FOOTER INNER
+========================= */
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  gap: $space-md;
+}
+
+/* =========================
+   FOOTER TEXT
+========================= */
+
+.site-footer p,
+.site-footer span {
+  margin: 0;
+
+  color: $muted;
+
+  font-size: 0.95rem;
+}
+
+/* =========================
+   FOOTER LINKS
+========================= */
+
+.site-footer a {
+  color: inherit;
+
+  transition:
+    color $transition-fast;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+/* =========================
+   FOOTER NAV
+========================= */
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: $space-md;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .footer-nav {
+    justify-content: center;
+  }
+}
+.email-popup {
+  position: fixed;
+  inset: 0;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,.55);
+
+  z-index: 99999;
+}
+
+.email-popup.active {
+  display: flex;
+}
+
+.email-popup-card {
+  width: min(90%, 400px);
+
+  background: white;
+  border-radius: 24px;
+
+  padding: 2rem;
+
+  position: relative;
+}

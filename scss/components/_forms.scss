@@ -1,0 +1,113 @@
+@use '../abstracts/variables' as *;
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+.contact-form {
+  label {
+    display: grid;
+
+    gap: $space-xs;
+
+    color: $text;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+
+    min-width: 0;
+
+    min-height: 44px;
+
+    padding: $space-sm;
+
+    border: 1px solid $border;
+    border-radius: $radius-md;
+
+    background: $color-cream;
+
+    color: $text;
+
+    resize: vertical;
+
+    transition:
+      border-color $transition-fast,
+      box-shadow $transition-fast,
+      background $transition-fast;
+
+    &::placeholder {
+      color: $muted;
+    }
+
+    &:focus {
+      outline: none;
+
+      border-color: $color-primary;
+
+      box-shadow:
+        0 0 0 4px
+        rgba(
+          $color-primary,
+          0.12
+        );
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:disabled {
+      opacity: 0.7;
+
+      cursor: not-allowed;
+    }
+  }
+
+  textarea {
+    min-height: 120px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .contact-form {
+    input,
+    textarea,
+    select {
+      padding:
+        0.9rem
+        $space-sm;
+    }
+  }
+}
+
+.delivery-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.delivery-option {
+  display: flex;
+  gap: 1rem;
+
+  padding: 1rem;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+
+  cursor: pointer;
+}
+
+.delivery-option small {
+  display: block;
+  margin-top: .35rem;
+
+  opacity: .7;
+}

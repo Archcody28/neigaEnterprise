@@ -1,0 +1,75 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholders' as *;
+
+/* =========================
+   CARD GROUP
+========================= */
+
+.trust-card,
+.value-card,
+.about-card,
+.contact-panel,
+.contact-form {
+  @extend %card-base;
+  @extend %transition-base;
+
+  min-width: 0;
+
+  padding: $space-xl;
+}
+
+/* =========================
+   CONTENT CARDS
+========================= */
+
+.trust-card,
+.value-card,
+.about-card {
+  min-height: 14rem;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+
+  strong {
+    display: block;
+
+    margin-top: $space-lg;
+
+    color: $text;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .trust-card,
+  .value-card,
+  .about-card,
+  .contact-panel,
+  .contact-form {
+    padding: $space-lg;
+  }
+
+  .trust-card,
+  .value-card,
+  .about-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .trust-card,
+  .value-card,
+  .about-card,
+  .contact-panel,
+  .contact-form {
+    padding: $space-md;
+  }
+}

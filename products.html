@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse Neiga Enterprise product collections including duvets, curtains, blankets and décor with WhatsApp ordering links.">
+  <meta name="author" content="UDEHlabs">
+  <title>Products | Neiga Enterprise</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- CART MODAL -->
+<div id="cart-modal">
+  <div class="cart-drawer">
+
+    <div class="cart-header">
+
+  <button id="cart-back" class="cart-back-btn">
+    ←
+  </button>
+
+  <h3>🛒 Your Cart</h3>
+
+  <button id="close-cart">✕</button>
+
+</div>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong>$<span id="cart-total">0</span></strong>
+      </div>
+      <button id="checkout" class="button button-primary">
+        Checkout on WhatsApp
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast" class="toast">Added to cart</div>
+  <a class="whatsapp-float" href="https://wa.me/1234567890?text=Hello%20Neiga%20Enterprise%2C%20I%20would%20like%20to%20order%20from%20the%20catalog." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <span>WhatsApp</span>
+  </a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Neiga <span class="eyebrow">Enterprise</span></a>
+      <div class="cart-icon" id="cart-icon">
+  🛒 <span id="cart-count">0</span>
+</div>
+      <div class="nav-toggle" aria-label="Open menu" role="button" tabindex="0" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-overlay"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section page-hero reveal">
+      <div class="container">
+        <span class="eyebrow">Explore the collection</span>
+        <h1>Premium products crafted for elegant living.</h1>
+        <p>Choose from; Home essentials, Smart devices, Interior furnishings, Apparel and more. Payment on delivery available for your convenience. Trusted by hundreds of happy customer.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#product-gallery">Shop the collection</a>
+          <a class="button button-secondary" href="contact.html">contact us for interior decor</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section product-gallery" id="product-gallery">
+     <div class="filtsearch"> 
+      <div class="filters reveal">
+  <button class="active" data-filter="all">All</button>
+
+  <button data-filter="Home Essentials">
+    Home Essentials
+  </button>
+
+  <button data-filter="Electronics">
+    Electronics
+  </button>
+
+  <button data-filter="Interior">
+    Interior
+  </button>
+
+  <button data-filter="Fashion">
+    Fashion
+  </button>
+
+  <button data-filter="Kitchen ware">
+    Kitchenware
+  </button>
+
+  <button data-filter="Books">
+    Books
+  </button>
+
+  <button data-filter="Comfort and wellness">
+    Wellness
+  </button>
+
+  <button data-filter="Toys">
+    Toys
+  </button>
+
+  <button data-filter="Beauty">
+    Beauty
+  </button>
+
+  <button data-filter="Accessories">
+    Accessories
+  </button>
+</div>
+<input type="text" id="search" class="search  reveal" placeholder="Search products...">
+</div>
+<span class="badge">Popular</span>
+    <div class="container grid-3" id="products-container">
+  <div id="live-toast" class="live-toast"></div>
+</div>
+<section class="recent">
+  <h3>Recently Viewed</h3>
+  <div id="recent-container"></div>
+</section>
+    </section>
+  </main>
+  <div id="checkout-modal" class="checkout-modal">
+
+  <div class="checkout-card">
+
+    <button
+      id="close-checkout"
+      class="close-checkout"
+    >
+      ✕
+    </button>
+
+    <h3>Delivery Details</h3>
+
+    <form id="checkout-form">
+
+      <input
+        type="text"
+        id="customer-name"
+        placeholder="Full Name"
+        required
+      >
+
+      <input
+        type="tel"
+        id="customer-phone"
+        placeholder="Phone Number"
+        required
+      >
+
+      <input
+        type="email"
+        id="customer-email"
+        placeholder="Email Address"
+        required
+      >
+
+<div class="delivery-options">
+
+  <label class="delivery-option">
+
+    <input
+      type="radio"
+      name="delivery-method"
+      value="pickup"
+      checked
+    >
+
+    <span>
+      Pickup
+      <small>
+        You will receive a message from us shortly.
+      </small>
+    </span>
+
+  </label>
+
+  <label class="delivery-option">
+
+    <input
+      type="radio"
+      name="delivery-method"
+      value="doorstep"
+    >
+
+    <span>
+      Door Step Delivery
+      <small>
+        Within Lagos State additional ₦3000.
+      </small>
+    </span>
+
+  </label>
+
+  <label class="delivery-option">
+
+    <input
+      type="radio"
+      name="delivery-method"
+      value="waybill"
+    >
+
+    <span>
+      Waybill Delivery
+      <small>
+        Input nearest Lagos motor park.
+      </small>
+    </span>
+
+  </label>
+
+</div>
+
+<textarea
+  id="customer-address"
+  placeholder="Pickup point or nearest motor park"
+></textarea>
+
+      <button
+        type="submit"
+        class="button button-primary"
+      >
+        Continue to WhatsApp
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+<div id="email-popup" class="email-popup">
+
+  <div class="email-popup-card">
+
+    <button id="close-email-popup">
+      ✕
+    </button>
+
+    <h3>
+      Get exclusive deals
+    </h3>
+
+    <p>
+      Sign up for discounts and premium offers.
+    </p>
+
+    <form id="email-capture-form">
+
+      <input
+        type="email"
+        id="visitor-email"
+        placeholder="Enter your email"
+        required
+      >
+
+      <button type="submit">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Shop premium home styling with Neiga Enterprise. Payment on delivery available.</p>
+      <a class="button button-ghost" href="contact.html">Start chat</a>
+    </div>
+  </footer>
+<div id="mini-cart" class="mini-cart"></div>
+  <script type="module" src="js/main.js" ></script>
+</body>
+</html>
