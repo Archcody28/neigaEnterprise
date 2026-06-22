@@ -2,7 +2,7 @@ import path from "path";
 import { protect, adminOnly } from "../middleware/auth.js";
 import express from "express";
 import multer from "multer";
-import Product from "../models/Product.js";
+import Product from "../models/product.js";
 
 const router = express.Router();
 
