@@ -4,4 +4,4 @@ const isLocal =
 
 export const API_BASE = isLocal
   ? "http://localhost:5000"
-  : "https://neiga-enterprise-api.onrender.com";
+  : "https://neigaenterprise.onrender.com";
